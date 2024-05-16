@@ -1,0 +1,1 @@
+//TODO: fct fetchData qui enverra des requêtes à l'api et qui renverra les reponses de l'api
