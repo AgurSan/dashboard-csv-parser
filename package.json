@@ -1,5 +1,5 @@
 {
-  "name": "-dashboard-csv-parser",
+  "name": "dashboard-csv-parser",
   "private": true,
   "version": "0.0.0",
   "type": "module",

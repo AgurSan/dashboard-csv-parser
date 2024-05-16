@@ -1,8 +1,9 @@
+import { Dashboard  } from "./components"
 function App() {
 
   return (
     <>
-      Coucou
+      <Dashboard />
     </>
   )
 }
