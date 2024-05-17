@@ -17,14 +17,24 @@ interface GlobalMetrics {
 /**
  * Fetches global metrics based on the year and state provided.
  *
- * @param {number} year - The year for which metrics are fetched
- * @param {string} state - The state for which metrics are fetched
- * @return {Promise<GlobalMetrics>} The data representing the global metrics
+ * @param {number} [year] - The year for which metrics are fetched (optional).
+ * @param {string} [state] - The state for which metrics are fetched (optional).
+ * @returns {Promise<GlobalMetrics>} A promise that resolves to the global metrics data.
+ * @throws Will throw an error if the data fetch fails.
  */
 export async function fetchGlobalMetrics(year?: number, state?: string): Promise<GlobalMetrics> {
-    const url = `${API_URL}/metrics${year ? `?year=${year}` : ''}${state ? `&state=${state}` : ''}`;
+    let url = `${API_URL}/metrics`;
+
+    const params: string[] = [];
+    if (year) params.push(`year=${year}`);
+    if (state) params.push(`state=${state}`);
+
+    if (params.length > 0) {
+        url += '?' + params.join('&');
+    }
+
     try {
-        const response = await axios.get(url);
+        const response = await axios.get<GlobalMetrics>(url);
         return response.data;
     } catch (error) {
         console.error('Erreur lors de la récupération des données:', error);
