@@ -72,7 +72,7 @@ export const Dashboard: React.FC = () => {
                         </select>
                     </div>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 md:grid-rows-auto gap-8">
                     {metrics && <MetricsTable metrics={metrics} />}
                     {metrics && <MonthlyMetricsChart metrics={metrics} />}
                 </div>
