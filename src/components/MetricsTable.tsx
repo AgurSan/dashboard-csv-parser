@@ -27,7 +27,7 @@ export const MetricsTable: React.FC<MetricsTableProps> = ({ metrics }) => {
                 </div>
                 <div>
                     <p className="text-gray-500 mb-2">Unique Customers</p>
-                    <p className="text-2xl font-bold text-blue-800">{formatCurrency(metrics.uniqueCustomers)}</p>
+                    <p className="text-2xl font-bold text-blue-800">{metrics.uniqueCustomers}</p>
                 </div>
             </div>
         </div>
