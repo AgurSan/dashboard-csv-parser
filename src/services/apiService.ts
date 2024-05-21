@@ -48,7 +48,7 @@ export async function fetchGlobalMetrics(year?: number, state?: string): Promise
  * @return {Promise<{ years: string[]; states: string[] }>} A promise that resolves to an object containing arrays of available years and states.
  * @throws Will throw an error if the metadata fetch fails.
  */
-export async function fetchMetadata(): Promise<{ years: string[]; states: string[] }> {
+export async function fetchGlobalMetaData(): Promise<{ years: string[]; states: string[] }> {
     const url = `${API_URL}/metadata`;
 
     try {
