@@ -1,6 +1,13 @@
 import React from 'react';
 import { formatCurrency } from '../utils';
 
+interface Metrics {
+    totalRevenue: number;
+    avgRevenuePerOrder: number;
+    uniqueCustomers: number;
+    monthlyMetrics: { [key: string]: { revenue: number; orders: number } };
+}
+
 interface MetricsTableProps {
     metrics: Metrics;
 }

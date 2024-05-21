@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { formatCurrency } from '../utils';
 
 export const MonthlyMetricsChart: React.FC = ({ metrics }) => {
     const monthlyData = Object.entries(metrics.monthlyMetrics).map(([month, data]) => ({
@@ -37,7 +38,7 @@ export const MonthlyMetricsChart: React.FC = ({ metrics }) => {
                                                 {month}
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap text-sm text-right text-gray-500">
-                                                ${revenue.toFixed(2)}
+                                                {formatCurrency(revenue)}
                                             </td>
                                         </tr>
                                     ))}
