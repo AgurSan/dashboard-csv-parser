@@ -41,3 +41,21 @@ export async function fetchGlobalMetrics(year?: number, state?: string): Promise
         throw new Error('Erreur lors de la récupération des données');
     }
 }
+
+/**
+ * Fetches metadata from the API, including available years and states.
+ *
+ * @return {Promise<{ years: string[]; states: string[] }>} A promise that resolves to an object containing arrays of available years and states.
+ * @throws Will throw an error if the metadata fetch fails.
+ */
+export async function fetchMetadata(): Promise<{ years: string[]; states: string[] }> {
+    const url = `${API_URL}/metadata`;
+
+    try {
+        const response = await axios.get<{ years: string[]; states: string[] }>(url);
+        return response.data;
+    } catch (error) {
+        console.error('Erreur lors de la récupération des métadonnées:', error);
+        throw new Error('Erreur lors de la récupération des métadonnées');
+    }
+}
